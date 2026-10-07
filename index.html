@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Clone da página de vídeo do YouTube feito com HTML e CSS, com foco em Flexbox. Desafio de Projeto da Trilha de CSS da DIO.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Semana Front-end | Dia 01 — DevTube</title>
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+
+  <!-- ==================================================================
+       CABEÇALHO — Flexbox: três grupos (esquerda / centro / direita)
+       O grupo do centro fica com o espaço restante (flex: 1) e centraliza
+       a barra de busca. Assim o layout não quebra em telas diferentes.
+       ================================================================== -->
+  <header class="cabecalho">
+
+    <div class="cabecalho__esquerda">
+      <button class="botao-icone" type="button" aria-label="Abrir menu de navegação">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      </button>
+
+      <a class="logo" href="#" aria-label="DevTube — página inicial">
+        <img src="assets/images/youtube-logo.png" width="656" height="145" alt="DevTube">
+      </a>
+    </div>
+
+    <div class="cabecalho__centro">
+      <form class="busca" role="search" action="#" method="get">
+        <label class="visualmente-oculto" for="campo-busca">Pesquisar no DevTube</label>
+        <input class="busca__campo" type="search" id="campo-busca" name="q"
+               placeholder="Pesquisar" autocomplete="off">
+        <button class="busca__botao" type="submit" aria-label="Pesquisar">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.87 20.17l-5.59-5.59A6.96 6.96 0 0017 10.5 7 7 0 103 10.5a7 7 0 0010.67 6.02l5.59 5.59zM10 15.5a5 5 0 115-5 5 5 0 01-5 5z"/></svg>
+        </button>
+      </form>
+
+      <button class="botao-icone botao-icone--voz" type="button" aria-label="Pesquisar por voz">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15a3 3 0 003-3V6a3 3 0 00-6 0v6a3 3 0 003 3zm5-3a5 5 0 01-10 0H5a7 7 0 006 6.92V22h2v-3.08A7 7 0 0019 12z"/></svg>
+      </button>
+    </div>
+
+    <div class="cabecalho__direita">
+      <button class="botao-icone" type="button" aria-label="Criar vídeo">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 6l2-2h-4l-2 2H4v12h16V6zm-2 9a4 4 0 114-4 4 4 0 01-4 4zm0-6a2 2 0 102 2 2 2 0 00-2-2z"/></svg>
+      </button>
+
+      <button class="botao-icone botao-icone--sino" type="button" aria-label="Notificações: 3 não lidas">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22a2 2 0 002-2h-4a2 2 0 002 2zm6-6V11a6 6 0 00-5-5.91V4a1 1 0 00-2 0v1.09A6 6 0 006 11v5l-2 2v1h16v-1z"/></svg>
+        <span class="sino__badge" aria-hidden="true">3</span>
+      </button>
+
+      <button class="avatar" type="button" aria-label="Sua conta">
+        <img src="assets/images/avatar-usuario.jpg" width="48" height="48" alt="">
+      </button>
+    </div>
+
+  </header>
+
+  <!-- ==================================================================
+       CONTEÚDO — Flexbox: coluna principal + barra lateral.
+       A coluna principal cresce (flex: 1) e a lateral tem largura fixa,
+       então o vídeo ocupa todo o espaço que sobra.
+       ================================================================== -->
+  <div class="pagina" id="conteudo" tabindex="-1">
+
+    <main class="principal">
+
+      <!-- -------- Player -------- -->
+      <section class="player" aria-label="Reprodutor de vídeo">
+        <img class="player__video" src="assets/images/video-principal.png"
+             width="1037" height="585"
+             alt="Quadro do vídeo: tela de código durante a live Semana Front-end">
+
+        <div class="player__controles">
+          <div class="player__progresso" role="progressbar"
+               aria-label="Progresso do vídeo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="9">
+            <div class="player__progresso-preenchido"></div>
+            <div class="player__progresso-marcador"></div>
+          </div>
+
+          <div class="player__barra">
+            <div class="player__grupo">
+              <button class="player__botao" type="button" aria-label="Pausar">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+              </button>
+              <button class="player__botao" type="button" aria-label="Próximo vídeo">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 5l9 7-9 7zm11 0h2v14h-2z"/></svg>
+              </button>
+              <button class="player__botao" type="button" aria-label="Volume">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9v6h4l5 4V5L8 9zm12.5 3a4.5 4.5 0 00-2.5-4v8a4.5 4.5 0 002.5-4z"/></svg>
+              </button>
+              <span class="player__tempo">0:24 / 4:27</span>
+            </div>
+
+            <div class="player__grupo">
+              <button class="player__botao" type="button" aria-label="Legendas">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm-9 10H8v-1H6v-2h2v-1h3zm7 0h-3v-1h-2v-2h2v-1h3z"/></svg>
+              </button>
+              <button class="player__botao" type="button" aria-label="Configurações">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 8a4 4 0 104 4 4 4 0 00-4-4zm8.4 4a8.4 8.4 0 01-.1 1.3l2 1.6-2 3.4-2.4-1a8.3 8.3 0 01-2.2 1.3l-.4 2.6h-4l-.4-2.6a8.3 8.3 0 01-2.2-1.3l-2.4 1-2-3.4 2-1.6a8.4 8.4 0 010-2.6l-2-1.6 2-3.4 2.4 1a8.3 8.3 0 012.2-1.3l.4-2.6h4l.4 2.6a8.3 8.3 0 012.2 1.3l2.4-1 2 3.4-2 1.6a8.4 8.4 0 01.1 1.3z"/></svg>
+              </button>
+              <button class="player__botao" type="button" aria-label="Modo cinema">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 6H5a2 2 0 00-2 2v8a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2zm0 10H5V8h14z"/></svg>
+              </button>
+              <button class="player__botao" type="button" aria-label="Tela cheia">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7zm-2-4h2V7h3V5H5zm12 7h-3v2h5v-5h-2zM14 5v2h3v3h2V5z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- -------- Título -------- -->
+      <h1 class="titulo">
+        Semana Front-end | Dia 01: Construindo uma Landing Page no Mundo Invertido com HTML e CSS
+      </h1>
+
+      <!-- -------- Canal + ações --------
+           Flexbox com quebra: em telas largas o canal e as ações ficam na
+           mesma linha; quando não cabe, as ações descem sozinhas. -->
+      <div class="barra-video">
+
+        <div class="canal">
+          <a class="canal__link" href="#">
+            <img class="canal__avatar" src="assets/images/avatar-dio.png"
+                 width="476" height="590" alt="">
+            <span class="canal__texto">
+              <span class="canal__nome">
+                DIO
+                <svg class="canal__verificado" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <title>canal verificado</title>
+                  <path d="M12 2l2.4 2.1 3.1-.5 1.2 3 2.9 1.2-.5 3.2L23 13.4l-2 2.5.5 3.1-3 1.2-1.2 2.9-3.2-.5L12 24l-2.4-2.1-3.1.5-1.2-3-2.9-1.2.5-3.2L1 13.4l2-2.5-.5-3.1 3-1.2L6.7 3.7l3.2.5zm-1 13.4l5.7-5.7-1.4-1.4-4.3 4.3-2-2-1.4 1.4z"/>
+                </svg>
+              </span>
+              <span class="canal__inscritos">83,3 mil inscritos</span>
+            </span>
+          </a>
+
+          <button class="botao-inscrever" type="button">Inscrever-se</button>
+        </div>
+
+        <div class="acoes">
+          <div class="acoes__grupo">
+            <button class="acao" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11h3v10H3zm5 10h8.6a2 2 0 001.9-1.4l2.4-7A2 2 0 0019 10h-5.3l.8-3.8A1.5 1.5 0 0013 4.6L7.3 11H8z"/></svg>
+              <span>2 mil</span>
+            </button>
+            <button class="acao acao--so-icone" type="button" aria-label="Não gostei">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 13h-3V3h3zm-5-10H7.4a2 2 0 00-1.9 1.4l-2.4 7A2 2 0 005 14h5.3l-.8 3.8A1.5 1.5 0 0011 19.4L16.7 13H16z"/></svg>
+            </button>
+          </div>
+
+          <button class="acao" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 9V5l7 7-7 7v-4.1C9 15 5.6 16.5 3 20c1-5 4-9 11-11z"/></svg>
+            <span>Compartilhar</span>
+          </button>
+
+          <button class="acao" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 20h14v-2H5zM12 3L6 9h4v6h4V9h4z"/></svg>
+            <span>Download</span>
+          </button>
+
+          <button class="acao acao--so-icone" type="button" aria-label="Mais opções">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 8a2 2 0 10-2-2 2 2 0 002 2zm0 2a2 2 0 102 2 2 2 0 00-2-2zm0 6a2 2 0 102 2 2 2 0 00-2-2z"/></svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- -------- Descrição -------- -->
+      <section class="descricao" aria-labelledby="titulo-descricao">
+        <h2 class="visualmente-oculto" id="titulo-descricao">Descrição do vídeo</h2>
+
+        <p class="descricao__meta">
+          <strong>28.418 visualizações</strong>
+          <span aria-hidden="true">•</span>
+          Transmitido ao vivo em <time datetime="2022-08-23">23 ago. de 2022</time>
+        </p>
+
+        <p class="descricao__texto">
+          Inicie uma aventura imersiva no mundo do Front-end com HTML e CSS. Para isso,
+          criaremos uma landing page com a temática da série Stranger Things, a qual
+          contará com a implementação de um theme switcher (light e dark) para
+          explorarmos os mistérios do mundo invertido.
+        </p>
+
+        <p class="descricao__tags">
+          <a href="#">#frontend</a> <a href="#">#html</a> <a href="#">#css</a>
+        </p>
+      </section>
+
+    </main>
+
+    <!-- -------- Barra lateral -------- -->
+    <aside class="lateral" aria-labelledby="titulo-lateral">
+      <h2 class="lateral__titulo" id="titulo-lateral">Vídeos recomendados</h2>
+
+      <ul class="lista-videos">
+
+        <li>
+          <a class="card" href="#">
+            <span class="card__thumb">
+              <img src="assets/images/thumb-01.png" width="246" height="138" alt="">
+              <span class="card__duracao">2:04:19</span>
+            </span>
+            <span class="card__info">
+              <span class="card__titulo">Geração Tech Unimed - BH - Ciência de dados</span>
+              <span class="card__canal">DigitalinnovationOne</span>
+              <span class="card__meta">2,1 mil visualizações • há 2 dias</span>
+            </span>
+          </a>
+        </li>
+
+        <li>
+          <a class="card" href="#">
+            <span class="card__thumb">
+              <img src="assets/images/thumb-02.png" width="246" height="138" alt="">
+              <span class="card__duracao">1:12:40</span>
+            </span>
+            <span class="card__info">
+              <span class="card__titulo">Scrum Talks</span>
+              <span class="card__canal">DigitalinnovationOne</span>
+              <span class="card__meta">1,6 mil visualizações • há 3 dias</span>
+            </span>
+          </a>
+        </li>
+
+        <li>
+          <a class="card" href="#">
+            <span class="card__thumb">
+              <img src="assets/images/thumb-03.png" width="246" height="138" alt="">
+              <span class="card__duracao">58:22</span>
+            </span>
+            <span class="card__info">
+              <span class="card__titulo">Machine Learning Avançado - Fast Track</span>
+              <span class="card__canal">DigitalinnovationOne</span>
+              <span class="card__meta">1,7 mil visualizações • há 4 dias</span>
+            </span>
+          </a>
+        </li>
+
+        <li>
+          <a class="card" href="#">
+            <span class="card__thumb">
+              <img src="assets/images/thumb-04.png" width="246" height="138" alt="">
+              <span class="card__duracao">44:05</span>
+            </span>
+            <span class="card__info">
+              <span class="card__titulo">Global Skills #2 - Project Planning</span>
+              <span class="card__canal">DigitalinnovationOne</span>
+              <span class="card__meta">971 visualizações • há 5 dias</span>
+            </span>
+          </a>
+        </li>
+
+        <li>
+          <a class="card" href="#">
+            <span class="card__thumb">
+              <img src="assets/images/thumb-05.png" width="246" height="138" alt="">
+              <span class="card__duracao">3:31:12</span>
+            </span>
+            <span class="card__info">
+              <span class="card__titulo">Como aprender a programar Python do ZERO</span>
+              <span class="card__canal">DigitalinnovationOne</span>
+              <span class="card__meta">711 visualizações • há 6 dias</span>
+            </span>
+          </a>
+        </li>
+
+        <li>
+          <a class="card" href="#">
+            <span class="card__thumb">
+              <img src="assets/images/thumb-06.png" width="246" height="138" alt="">
+              <span class="card__duracao">1:02:33</span>
+            </span>
+            <span class="card__info">
+              <span class="card__titulo">Geração Tech Unimed - BH - Ciência de Dados</span>
+              <span class="card__canal">Unimed BH</span>
+              <span class="card__meta">2,1 mil visualizações • há 2 dias</span>
+            </span>
+          </a>
+        </li>
+
+      </ul>
+    </aside>
+
+  </div>
+
+  <!-- ==================================================================
+       RODAPÉ
+       ================================================================== -->
+  <footer class="rodape">
+    <p class="rodape__nota">
+      Projeto de estudo — clone da interface do YouTube feito com HTML e CSS puro,
+      com foco em <strong>Flexbox</strong>. Desafio de Projeto da Trilha de CSS da DIO.
+    </p>
+  </footer>
+
+</body>
+</html>
