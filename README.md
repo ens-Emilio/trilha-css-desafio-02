@@ -33,7 +33,6 @@ trilha-css-desafio-02/
 │       ├── youtube-logo.png
 │       ├── video-principal.png
 │       ├── avatar-dio.png
-│       ├── avatar-canal.png
 │       ├── avatar-usuario.jpg
 │       └── thumb-01..06.png
 └── README.md
@@ -175,8 +174,10 @@ As medidas foram tiradas medindo as regiões do design no screenshot: player com
 
 ### Assets
 
-Os 11 arquivos de imagem são os originais do design, baixados das URLs de imagem
-do arquivo no Figma.
+Os 10 arquivos de imagem são os originais do design, baixados das URLs de imagem
+do arquivo no Figma. O design não tem avatar nos cards laterais — conferi por
+amostragem de pixel e há apenas texto sobre o fundo, então não incluí esse
+elemento.
 
 ---
 
@@ -242,7 +243,7 @@ do arquivo no Figma.
 | Skip link é o primeiro elemento focável | ✅ aparece em `x=0` |
 | Enter move o foco para o conteúdo | ✅ foco no `#conteudo` |
 | Foco visível em botões, campos e cards | ✅ 2px sólido |
-| Todas as imagens carregam | ✅ 11 de 11 |
+| Todas as imagens carregam | ✅ 10 de 10 |
 | Erros de JavaScript | nenhum |
 | Requisições falhadas | nenhuma |
 
