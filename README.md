@@ -28,7 +28,7 @@ trilha-css-desafio-02/
 ├── assets/
 │   ├── css/
 │   │   ├── reset.css      Normalização (53 linhas)
-│   │   └── styles.css     Estilização completa (804 linhas comentadas)
+│   │   └── styles.css     Estilização completa (810 linhas comentadas)
 │   └── images/
 │       ├── youtube-logo.png
 │       ├── video-principal.png
